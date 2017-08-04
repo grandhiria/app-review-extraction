@@ -45,7 +45,7 @@ public class ExecuteScript {
     int rowNumber = 1;
     int row = 1;
 
-    public void jsonOutput() throws MalformedURLException, IOException, FileNotFoundException {
+    public void jsonOutput() throws MalformedURLException, IOException {
         //String jsonResponse = null;
         Properties p = new Properties();
         InputStream input = null;
@@ -67,10 +67,9 @@ public class ExecuteScript {
             package_name = p.getProperty("package_name");
             api_endpoint = p.getProperty("api_endpoint");
             output_file = p.getProperty("file_output");
-            
             System.out.println("The output file is: " +output_file);
 
-        } catch (IOException ex) {
+        } catch (FileNotFoundException ex) {
             ex.printStackTrace();
         } finally {
             if (input != null) {
@@ -124,9 +123,7 @@ public class ExecuteScript {
                     fileOutput.flush();
                 }
 
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
+            }  catch (IOException e) {
                 //go to the next token when an IOException is thrown
                 //go to 42matters.com, create an account to get an access token
                 String[] tokenString = {"68c28a43656b43fc837cd6731c7cea6c53262768", "68c28a43656b43fc837cd6731c7cea6c53262768", "b2eab160749d943c691f33f4555161cf05c0b147", "08efdbf01fe4b54669aeb09e4745ddcc3d96da3d"};
