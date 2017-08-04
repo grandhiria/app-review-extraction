@@ -67,6 +67,8 @@ public class ExecuteScript {
             package_name = p.getProperty("package_name");
             api_endpoint = p.getProperty("api_endpoint");
             output_file = p.getProperty("file_output");
+            
+            System.out.println("The output file is: " +output_file);
 
         } catch (IOException ex) {
             ex.printStackTrace();
